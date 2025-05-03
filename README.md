@@ -1,1 +1,3 @@
-# CovidSimulation
+# Задание «Симуляция COVID-19»
+Программа для симуляции заражения людей коронавирусной инфекцией COVID-19 с возможностью установки различных параметров симуляции.
+![image](https://github.com/user-attachments/assets/ce38a80b-99a5-4e1c-85de-08ed5b47b7aa)
