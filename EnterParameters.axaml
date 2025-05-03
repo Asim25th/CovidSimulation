@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="350" d:DesignHeight="300"
+		Width="350" Height="300" CanResize="False"
+		WindowStartupLocation="CenterScreen"
+        x:Class="CovidSimulation.EnterParameters"
+        Title="Параметры симуляции">
+	<Border BorderBrush="White" BorderThickness="2" Margin="45">
+		<StackPanel Margin="5" HorizontalAlignment="Center" Spacing="10">
+			<TextBlock Text="Введите параметры симуляции:"
+					   HorizontalAlignment="Center"/>		
+			<TextBox Watermark="Численность популяции" Width="230"
+					 Name="populationTextBox"/>
+			<TextBox Watermark="Радиус заражения" Width="230"
+					 Name="infectionRadiusTextBox"/>
+			<ComboBox PlaceholderText="Шанс заражения, %" Width="230"
+					  SelectionChanged="SelectInfectionChance_SelectionChanged">
+				<ComboBoxItem Content="10"/>
+				<ComboBoxItem Content="20"/>
+				<ComboBoxItem Content="30"/>
+			</ComboBox>
+
+			<Button Content="Подтвердить" HorizontalAlignment="Center"
+					Click="Confirm_ButtonClick"/>
+		</StackPanel>
+	</Border>
+</Window>

@@ -1,0 +1,51 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="350"
+		Width="900" Height="350" CanResize="False"
+		WindowStartupLocation="CenterScreen"
+        x:Class="CovidSimulation.MainWindow"
+		xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
+		x:CompileBindings="False"	
+        Title="Задание «Симуляция COVID-19»">
+	<Grid ShowGridLines="False">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+
+		<StackPanel Grid.Column="0">
+			<lvc:CartesianChart Width="500" Height="300" BorderBrush="Black" BorderThickness="2" Grid.Row="0"
+								HorizontalAlignment="Left" Margin="10 0 0 0"
+								Series="{Binding Series}" Foreground="White" LegendPosition="Bottom">
+			</lvc:CartesianChart>
+			
+			<StackPanel Orientation="Horizontal" Spacing="10" Margin="10">
+				<Button Content="Начать" Click="StartSimulation_ButtonClick"/>
+				<Button Content="Остановить" Click="StopSimulation_ButtonClick"/>
+			</StackPanel>
+		</StackPanel>
+
+		<StackPanel Grid.Column="1">
+			<StackPanel Orientation="Horizontal" Margin="80 10 0 0">
+				<TextBlock Text="# Active cases = " Foreground="#ba3a30" FontSize="17"/>
+				<TextBlock Text="{Binding ActiveCases}" Foreground="#ba3a30" FontSize="17"/>
+			</StackPanel>
+
+			<StackPanel Orientation="Horizontal" Margin="80 10 0 0">
+				<TextBlock Text="Days = " Foreground="#ba3a30" FontSize="17"/>
+				<TextBlock Text="{Binding Days}" Foreground="#ba3a30" FontSize="17"/>
+			</StackPanel>
+			
+			<Border Margin="10" Background="" Width="250" Height="250" BorderBrush="Black" BorderThickness="2">
+				<Canvas Width="240" Height="240" Name="SimulationPole"/>
+			</Border>
+
+			<StackPanel Orientation="Horizontal" Margin="80 0 0 0">
+				<TextBlock Text="R = " Foreground="White" FontSize="20" FontStyle="Italic"/>
+				<TextBlock Text="{Binding R}" Foreground="White" FontSize="20" FontStyle="Italic"/>
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</Window>
